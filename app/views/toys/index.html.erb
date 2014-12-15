@@ -16,7 +16,12 @@
           <%= link_to toy.name, toy_path(toy) %>
         </td>
         <td>
-          <em>Replace this with a link to the cat who owns this toy</em>
+          <% @cats.each do |cat| %>
+            <% if toy.cat_id == cat.id %>
+              <%= link_to cat.name, cat_path(toy.cat_id) %>
+            <% end %>
+          <% end %>
+
         </td>
       </tr>
     <% end %>
