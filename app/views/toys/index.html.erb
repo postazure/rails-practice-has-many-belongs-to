@@ -16,12 +16,8 @@
           <%= link_to toy.name, toy_path(toy) %>
         </td>
         <td>
-          <% @cats.each do |cat| %>
-            <% if toy.cat_id == cat.id %>
-              <%= link_to cat.name, cat_path(toy.cat_id) %>
-            <% end %>
-          <% end %>
-
+          <% cat = @cats.detect {|cat| cat.id == toy.cat_id} %>
+          <%= link_to cat.name, cat_path(cat) %>
         </td>
       </tr>
     <% end %>
